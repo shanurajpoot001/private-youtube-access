@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
+
+    <title>Video Display</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="video-container">
+       <!--
+        <video id="videoPlayer" controls>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>--> 
+        <video id="video-player" nodownload autoplay muted loop>
+            <source src="video.mp4" type="video/mp4">
+          </video>
+          
+    </div>
+    <div id="watermark" style="
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    color: rgba(255, 0, 0, 0.5);
+    font-size: 24px;
+    pointer-events: none;
+    z-index: 9999;">
+  User: {{username}} | Time: {{timestamp}}
+</div>
+<p style="color: red;">Screenshot and screen recording are strictly prohibited. Violators may face consequences.</p>
+
+
+    <video id="video-player" autoplay muted loop>
+        <source src="video.mp4" type="video/mp4">
+      </video>
+      <div id="watermark" style="position: absolute; top: 10px; left: 10px; color: red; font-size: 20px; pointer-events: none;">
+        User: {{username}}
+      </div>
+      
+      <p style="color: red;">Video recording and downloads are prohibited on this page.</p>
+
+    <script>
+        document.addEventListener('contextmenu', (event) => {
+          event.preventDefault();
+        });
+      </script>
+      
+
+    <script src="script.js"></script>
+</body>
+</html>
